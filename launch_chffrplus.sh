@@ -27,9 +27,9 @@ function two_init {
   fi
   mount -o remount,r /system
   # always update to the latest update.zip
-  if [ -f /ONEPLUS ]; then
-    cp -f "$BASEDIR/system/hardware/eon/update.zip" "/data/media/0/update.zip"
-  fi
+  #if [ -f /ONEPLUS ]; then
+  #  cp -f "$BASEDIR/system/hardware/eon/update.zip" "/data/media/0/update.zip"
+  #fi
 
   # set IO scheduler
   setprop sys.io.scheduler noop
@@ -169,13 +169,13 @@ function two_init {
   mount -o remount,r /system
 
   # Check for NEOS update
-  if [ -f /LEECO ] && [ $(< /VERSION) != "$NEOS_VERSION" ]; then
-    echo "Installing NEOS update"
-    NEOS_PY="$DIR/system/hardware/eon/neos.py"
-    MANIFEST="$DIR/system/hardware/eon/neos.json"
-    $NEOS_PY --swap-if-ready $MANIFEST
-    $DIR/system/hardware/eon/updater $NEOS_PY $MANIFEST
-  fi
+  #if [ -f /LEECO ] && [ $(< /VERSION) != "$NEOS_VERSION" ]; then
+  #  echo "Installing NEOS update"
+  #  NEOS_PY="$DIR/system/hardware/eon/neos.py"
+  #  MANIFEST="$DIR/system/hardware/eon/neos.json"
+  #  $NEOS_PY --swap-if-ready $MANIFEST
+  #  $DIR/system/hardware/eon/updater $NEOS_PY $MANIFEST
+  #fi
 
   # One-time fix for a subset of OP3T with gyro orientation offsets.
   # Remove and regenerate qcom sensor registry. Only done on OP3T mainboards.
